@@ -1,0 +1,16 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: grafana
+  namespace: flux-system # This is the namespace of the KUSTOMIZE RESOURCE, not grafana itself
+spec:
+  interval: 30m0s
+  path: ./apps/observability/grafana/overlays/homelab
+  prune: true  # This means that if the resource gets deleted from the repo, it will get deleted
+  retryInterval: 2m0s
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  targetNamespace: default
+  timeout: 3m0s
+  wait: true

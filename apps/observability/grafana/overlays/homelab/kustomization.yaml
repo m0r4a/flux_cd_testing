@@ -1,0 +1,27 @@
+resources:
+  - ../../base/
+
+patches:
+  - path: ./pvc.yaml
+  - env.yaml
+
+images:
+  - name: grafana/grafana
+    newTag: latest
+#   newName: otro.registry.io/grafana/grafana
+
+# This is just a test of how a different config/secret would look like for different envs.
+
+# configMapGenerator:
+#  - name: test-config
+#    namespace: monitoring
+#    behavior: replace
+#    literals:
+#      - KEY=value
+#    files:
+#      - ./configs/config.json
+
+#secretGenerator:
+#  - name: test-secret
+#    literals:
+#      - PASSWORD=supersecret
