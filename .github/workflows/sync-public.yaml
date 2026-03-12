@@ -22,6 +22,6 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           git checkout -B public
-          git rm -r --cached clusters/homelab/flux-system/
+          git rm -r --cached clusters/homelab/flux-system/ --ignore-unmatch
           git commit -m "chore: sync public branch from main ($(git rev-parse --short HEAD))"
           git push origin public --force
