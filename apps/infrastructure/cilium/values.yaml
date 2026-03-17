@@ -1,0 +1,35 @@
+ipam:
+  mode: "cluster-pool"
+  operator:
+    clusterPoolIPv4PodCIDRList: ["11.1.0.0/16"]
+
+hubble:
+  enabled: true
+  relay:
+    enabled: true
+  ui:
+    enabled: true
+  metrics:
+    enabled: [dns, drop, tcp, flow, icmp, http]
+    serviceMonitor:
+      enabled: false   # Until prometheus operator is installed
+
+prometheus:
+  enabled: true
+  serviceMonitor:
+    enabled: false   # Until prometheus operator is installed
+
+operator:
+  replicas: 1
+
+  prometheus:
+    enabled: true
+    serviceMonitor:
+      enabled: false  # Until prometheus operator is installed
+
+bpf:
+  masquerade: true
+
+kubeProxyReplacement: true
+k8sServiceHost: 127.0.0.1
+k8sServicePort: 6443
