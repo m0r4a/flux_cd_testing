@@ -9,6 +9,13 @@ spec:
     kind: OCIRepository
     name: cilium
     namespace: flux-system
+  install:
+    timeout: 10m
+  upgrade:
+    timeout: 10m
+    remediation:
+      retries: 3
+      strategy: rollback
   values:
     ipam:
       mode: "cluster-pool"
