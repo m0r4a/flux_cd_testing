@@ -1,2 +1,3 @@
 resources:
   - ./cilium.yaml
+  - ./prometheus-operator
