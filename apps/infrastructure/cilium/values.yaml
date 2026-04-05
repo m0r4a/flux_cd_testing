@@ -1,7 +1,7 @@
 ipam:
   mode: "cluster-pool"
   operator:
-    clusterPoolIPv4PodCIDRList: ["11.1.0.0/16"]
+    clusterPoolIPv4PodCIDRList: ["11.0.0.0/16"]
 
 hubble:
   enabled: true
